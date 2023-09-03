@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cybn35wfejpao"]
+
+[ext_resource type="PackedScene" uid="uid://cn35kk21th1el" path="res://Shark.tscn" id="3_bltjn"]
+[ext_resource type="PackedScene" uid="uid://bs308qc3accrq" path="res://Prey.tscn" id="3_ut3e6"]
+[ext_resource type="PackedScene" uid="uid://61a26xkxp0h2" path="res://Axis.tscn" id="4_yyj1r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4pl8"]
+size = Vector2(1058, 561)
+
+[node name="Sea" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(591, 317)
+shape = SubResource("RectangleShape2D_l4pl8")
+
+[node name="Shark" parent="." instance=ExtResource("3_bltjn")]
+position = Vector2(565, 393)
+species = "shark"
+
+[node name="Prey" parent="." instance=ExtResource("3_ut3e6")]
+position = Vector2(209, 114)
+rotation = 0.625098
+species = "prey"
+
+[node name="PreyAxis" parent="." instance=ExtResource("4_yyj1r")]
+layout_direction = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

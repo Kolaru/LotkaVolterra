@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn35kk21th1el"]
+
+[ext_resource type="Script" path="res://Shark.gd" id="1_gfx33"]
+[ext_resource type="Texture2D" uid="uid://sjrmumsayait" path="res://shark.png" id="2_faum0"]
+
+[node name="Shark" type="Area2D"]
+position = Vector2(7, -3)
+script = ExtResource("1_gfx33")
+species = "shark"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-34.9, -5.09863)
+polygon = PackedVector2Array(121.9, -8.90137, 93.9, -18.9014, 69.9, -25.9014, 37.9, -28.9014, 18.9, -29.9014, 0.899994, -26.9014, -15.1, -6.90137, -18.1, 23.0986, -12.1, 35.0986, 11.9, 42.0986, 41.9, 42.0986, 72.9, 35.0986, 101.9, 22.0986, 126.9, 9.09863, 130.9, 1.09863)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-33.9, -5.09863)
+rotation = -0.363485
+scale = Vector2(0.19013, 0.19013)
+texture = ExtResource("2_faum0")
+
+[node name="TextStart" type="Marker2D" parent="."]
+position = Vector2(56, -46)
+
+[connection signal="collide_with_fish" from="." to="." method="eat"]

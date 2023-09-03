@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://decbjclfp8liw"]
+
+[ext_resource type="Script" path="res://Fish.gd" id="1_hqerv"]
+
+[node name="Fish" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+collision_mask = 0
+script = ExtResource("1_hqerv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

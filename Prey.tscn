@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs308qc3accrq"]
+
+[ext_resource type="Script" path="res://Prey.gd" id="1_svnub"]
+[ext_resource type="Texture2D" uid="uid://d1lj6usd2ulkd" path="res://fish_tail.png" id="2_e6yeq"]
+[ext_resource type="Texture2D" uid="uid://dwe4nm73m3p0c" path="res://fish_body.png" id="3_t6o4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0butc"]
+radius = 140.0
+height = 700.0
+
+[node name="Fish" type="Area2D"]
+scale = Vector2(0.033, 0.033)
+monitoring = false
+script = ExtResource("1_svnub")
+species = "prey"
+min_fish = 0
+max_fish = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -40)
+rotation = -1.57079
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_0butc")
+
+[node name="Tail" type="Sprite2D" parent="."]
+position = Vector2(-376.115, -1.46069)
+rotation = 0.401755
+texture = ExtResource("2_e6yeq")
+offset = Vector2(-94.446, 61.271)
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0.412903, -62.149)
+rotation = -0.0357357
+texture = ExtResource("3_t6o4m")

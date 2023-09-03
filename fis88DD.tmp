@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://decbjclfp8liw"]
+
+[ext_resource type="Script" path="res://Fish.gd" id="1_hqerv"]
+[ext_resource type="Texture2D" uid="uid://d1lj6usd2ulkd" path="res://fish_tail.png" id="2_rvgok"]
+[ext_resource type="Texture2D" uid="uid://dwe4nm73m3p0c" path="res://fish_body.png" id="3_obrmk"]
+
+[node name="Fish" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+collision_mask = 0
+script = ExtResource("1_hqerv")
+
+[node name="Tail" type="Sprite2D" parent="."]
+position = Vector2(-376.115, -1.46069)
+rotation = 0.401755
+texture = ExtResource("2_rvgok")
+offset = Vector2(-94.446, 61.271)
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0.412903, -62.149)
+rotation = -0.0357357
+texture = ExtResource("3_obrmk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-385, 2, -287, -96, -324, -99, -181, -198, -34, -245, 84, -241, 172, -221, 135, -169, 258, -107, 343, -38, 391, 17, 221, 58, 69, 83, -51, 79, -175, 60)

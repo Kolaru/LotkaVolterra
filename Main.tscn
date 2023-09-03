@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://gu1rmargk0wy"]
+
+[ext_resource type="PackedScene" uid="uid://61a26xkxp0h2" path="res://Axis.tscn" id="1_tdlfk"]
+[ext_resource type="Script" path="res://Sea.gd" id="2_2008r"]
+[ext_resource type="PackedScene" uid="uid://cn35kk21th1el" path="res://Shark.tscn" id="3_q1oxn"]
+[ext_resource type="PackedScene" uid="uid://bs308qc3accrq" path="res://Prey.tscn" id="4_2rfcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4pl8"]
+size = Vector2(1106, 600)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SharkAxis" parent="." instance=ExtResource("1_tdlfk")]
+layout_mode = 1
+color = Color(0.585938, 0.714844, 0.75, 1)
+species = "shark"
+
+[node name="PreyAxis" parent="." instance=ExtResource("1_tdlfk")]
+layout_direction = 2
+layout_mode = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0.644531, 0.574219, 1)
+
+[node name="Sea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+priority = -1
+script = ExtResource("2_2008r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sea"]
+position = Vector2(582, 326)
+shape = SubResource("RectangleShape2D_l4pl8")
+
+[node name="Shark" parent="Sea" instance=ExtResource("3_q1oxn")]
+position = Vector2(565, 393)
+scale = Vector2(0.29656, 0.29656)
+monitorable = false
+max_speed = 250.0
+min_speed = 150.0
+
+[node name="Prey" parent="Sea" instance=ExtResource("4_2rfcx")]
+position = Vector2(209, 114)
+rotation = 0.625098
